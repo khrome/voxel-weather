@@ -17,19 +17,26 @@ The short version
 
  Then if you want to change the weather:
 
-    weather.change('clear');
-    weather.change('cloudy');
-    weather.change('rain');
-    weather.change('snow');
-    weather.change('stormy');
+    weather('clear');
+    weather('cloudy');
+    weather('sprinkle');
+    weather('rain');
+    weather('snow');
+    weather('stormy');
 
 Or maybe you just want a semi-realistic weather pattern:
 
-    weather.start('clear');
+    weather(true);
+
+Or rotate through a list:
+
+    weather([
+        'clear', 'cloudy', 'sprinkle', 'rain', 'stormy',
+        'rain', 'sprinkle', 'cloudy', 'clear']);
 
 Then, to stop:
 
-    weather.stop();
+    weather(false);
 
 More Options
 ------------
