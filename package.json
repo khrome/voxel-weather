@@ -3,7 +3,7 @@
     "homepage": "https://github.com/khrome/voxel-weather",
     "version": "0.0.1",
     "main": "voxel-weather.js",
-    "description": "Biomes for voxeljs",
+    "description": "Weather for voxeljs",
     "keywords": [
         "voxel.js",
         "voxel",
