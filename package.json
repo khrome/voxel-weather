@@ -22,9 +22,9 @@
         "url": "git://github.com/khrome/voxel-weather.git"
     },
     "dependencies": {
-        "voxel-snow" : "*",
-        "voxel-player" : "*",
-        "voxel-sky" : "*"
+        "voxel-snow": "*",
+        "voxel-player": "*",
+        "voxel-sky": "*"
     },
     "devDependencies": {},
     "optionalDependencies": {},
