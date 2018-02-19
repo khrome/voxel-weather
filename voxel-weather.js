@@ -5,16 +5,39 @@ module.exports = function(world, useSky, useParticles){
     var createSky = useSky?vSky({
         game: world,
         time: 2400,
+        size: world.worldWidth() * 1.5,
         intensity : 0.01,
         color: new world.THREE.Color(0x333388),
         speed: 0.1
     }):function(){
         return {};
     };
-    //var createSky = vSky(world);
+    var sky;
+    var particles;
+    var colors = {
+        rain : 0x8888ff,
+        snow : 0xffffff,
+        sky : {
+            clear : 0xAAAAEE,
+            cloudy : 0xBBBBDD,
+            dark : 0xBBBBDD
+        }
+    }
+    var interval;
+    var setColor = function(color){
+        theSkyColor = new world.THREE.Color(color);
+        if(sky) sky.color = theSkyColor;
+        world.skyColor = color;
+    }
     var createParticles = function(options){
         options.game = world;
         return vSnow(options);
+    };
+
+    //var createSky = vSky(world);
+    /*var createParticles = function(options){
+        options.game = world;
+        //return vSnow(options);
     };
     var sky;
     var particles;
@@ -29,16 +52,20 @@ module.exports = function(world, useSky, useParticles){
     }
     var interval;
     world.on('tick', function(){
-        if(sky) sky();
+        //if(sky) sky();
         if(particles) particles.tick();
     });
     var theSkyColor ;
     var setColor = function(color){
         theSkyColor = new world.THREE.Color(color);
-        sky.color = theSkyColor;
+        if(sky) sky.color = theSkyColor;
         world.skyColor = color;
-    }
+    }*/
     return function weather(opts){
+        if(useSky && !sky){
+            var sky = createSky();
+            world.on('tick',sky);
+        }
         var states = ['clear', 'cloudy', 'sprinkle', 'rain', 'snow'];
         if(Array.isArray(opts) || opts === true){
             if(Array.isArray(opts)) states = opts;
@@ -56,8 +83,9 @@ module.exports = function(world, useSky, useParticles){
             options = {
                 conditions : opts
             }
-        }
-        if(useSky && !sky) sky = createSky(/*function(time){
+        }/*
+        if(useSky && !sky) sky = createSky(//*
+            function(time){
             this.spin(Math.PI * 2 * (time / 2400));
             //this.ambient.color.setHSL(0.9, 0.1, 0.1);
             //this.color(new this.game.THREE.Color(0,0,0));
@@ -87,6 +115,7 @@ module.exports = function(world, useSky, useParticles){
                 );
             }
 
+
           if(time === 400){
               this.paint('all', this.clear);
           }
@@ -95,8 +124,8 @@ module.exports = function(world, useSky, useParticles){
               this.sunlight.intensity = 0.2;
               this.ambient.color.setHSL(0.9, 1, 1);
           }
-      }*/);
-        window.theSky = sky;
+      }
+  );*/
         switch(options.conditions){
             case 'clear' :
                 //world.skyColor = colors.sky.clear;
