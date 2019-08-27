@@ -1,7 +1,7 @@
 {
     "name": "voxel-weather",
     "homepage": "https://github.com/khrome/voxel-weather",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "main": "voxel-weather.js",
     "description": "Weather for voxeljs",
     "keywords": [

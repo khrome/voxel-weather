@@ -131,7 +131,8 @@ module.exports = function(world, useSky, useParticles){
                 //world.skyColor = colors.sky.clear;
                 setColor(colors.sky.clear);
                 if(useParticles){
-                    if(particles) particles.remove();
+                    if(particles && particles.remove) particles.remove();
+                    if(particles && particles.particles && particles.particles.remove) particles.particles.remove();
                     particles = undefined;
                 }
                 break;
@@ -139,7 +140,8 @@ module.exports = function(world, useSky, useParticles){
                 //world.skyColor = colors.sky.cloudy;
                 setColor(colors.sky.cloudy);
                 if(useParticles){
-                    if(particles) particles.remove();
+                    if(particles && particles.remove) particles.remove();
+                    if(particles && particles.particles && particles.particles.remove) particles.particles.remove();
                     particles = undefined;
                 }
                 break;
@@ -147,7 +149,8 @@ module.exports = function(world, useSky, useParticles){
                 //world.skyColor = colors.sky.cloudy;
                 setColor(colors.sky.cloudy);
                 if(useParticles){
-                    if(particles) particles.remove();
+                    if(particles && particles.remove) particles.remove();
+                    if(particles && particles.particles && particles.particles.remove) particles.particles.remove();
                     particles = createParticles({
                         // how many particles of snow
                         count: 1000,
@@ -167,7 +170,8 @@ module.exports = function(world, useSky, useParticles){
                 //world.skyColor = colors.sky.clear;
                 setColor(colors.sky.clear);
                 if(useParticles){
-                    if(particles) particles.remove();
+                    if(particles && particles.remove) particles.remove();
+                    if(particles && particles.particles && particles.particles.remove) particles.particles.remove();
                     particles = createParticles({
                         // how many particles of snow
                         count: 200,
@@ -186,7 +190,8 @@ module.exports = function(world, useSky, useParticles){
                 //world.skyColor = colors.sky.cloudy;
                 setColor(colors.sky.cloudy);
                 if(useParticles){
-                    if(particles) particles.remove();
+                    if(particles && particles.remove) particles.remove();
+                    if(particles && particles.particles && particles.particles.remove) particles.particles.remove();
                     particles = createParticles({
                         // how many particles of snow
                         count: 1000,
@@ -205,7 +210,8 @@ module.exports = function(world, useSky, useParticles){
                 //world.skyColor = colors.sky.dark;
                 setColor(colors.sky.dark);
                 if(useParticles){
-                    if(particles) particles.remove();
+                    if(particles && particles.remove) particles.remove();
+                    if(particles && particles.particles && particles.particles.remove) particles.particles.remove();
                     particles = createParticles({
                         // how many particles of snow
                         count: 2000,
